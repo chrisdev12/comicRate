@@ -1,0 +1,145 @@
+@import '../../../styles.scss';
+
+nav {
+  position: sticky;
+  background: $background-color;
+  z-index: 1;
+  width:100%;
+  top:0;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+nav .items-nav {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: $small-screen) {
+
+  nav{
+    align-content: center;
+    .hamburguer-icon {
+      position: relative;
+      user-select: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+
+      span {
+        width: 2.7rem;
+        height: 0.3rem;
+        position: relative;
+        display: block;
+        margin-top: 0.2rem;
+        background-color: whitesmoke;
+        border-radius: 3px;
+        transition: transform $duracion-estandar ease-out;
+      }
+    }
+
+    #input-menu {
+      display: none;
+
+      &:checked ~ .hamburguer-icon span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-3px, -1px);
+      }
+
+      &:checked ~ .hamburguer-icon span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+      }
+
+      &:checked ~ .hamburguer-icon span:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(-3px, 1px);
+      }
+
+      /*Cambiar altura a 40vh y poder visualizar  las opciones
+      del menu */
+
+      &:checked ~ .items-nav {
+        height: 20rem;
+      }
+
+      &:checked ~ .items-nav li a {
+        opacity: 1;
+      }
+
+    }
+
+    #logo{
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    .items-nav {
+      list-style: none;
+      padding-left: 1rem;
+      width: 100%;
+      height: 0vh; /* PROPIEDAD MODIFICADA AL PRESIONAR EL CHECKBOX */
+      overflow: hidden;
+      background: $background-color;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      transition-delay: $duracion-estandar;
+      transition: height $duracion-estandar ease-out;
+
+      li a {
+        color: whitesmoke;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        text-decoration: none;
+
+          &:hover{
+            border-bottom: white solid 2px;
+          }
+      }
+    }
+  }
+}
+
+/*Navbar pantallas mayores a 850PX , medianas-grandes y grandes*/
+
+@media screen and (min-width: $small-screen) {
+  nav {
+
+    .hamburguer-icon span {
+      display: none; /*ESCONDER MENU HAMBURGUESA*/
+    }
+
+    #input-menu {
+      display: none;
+    }
+
+    #logo{
+      align-self: center;
+      img {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+    }
+
+
+    .items-nav {
+
+      li {
+        display: inline-flex;
+        margin-left: 3rem;
+
+        a{
+          color: whitesmoke;
+          text-decoration: none;
+         }
+      }
+    }
+  }
+}

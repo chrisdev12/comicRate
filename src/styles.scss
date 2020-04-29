@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+$font-style-sans: 'IBM Plex Sans', sans-serif;
+$font-style-mono: 'IBM Plex Mono', monospace;
+$black: #060A24;
+$background-color: linear-gradient(to right, #f00000, #dc281e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$button-color: #00F3BB 100%;
+$duracion-estandar: 1s;
+$small-screen: 700px;
+$media-desktop: 900px;
+$super-small-screen: 500px;
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: $font-style-mono;
+}
+
+body{
+  height: 100%;
+}

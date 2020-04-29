@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -128,5 +128,10 @@
   "defaultProject": "comic-rate",
   "cli": {
     "analytics": "8c067905-3fcf-4ea2-8f95-f7a28ef65e34"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }
