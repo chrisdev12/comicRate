@@ -7,9 +7,11 @@ import { Comic } from 'src/app/models/comic';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
   public comic: Comic
+  public loaded: Boolean = false;
 
   constructor(
     private _service: ComicsService,
@@ -25,10 +27,31 @@ export class HomeComponent implements OnInit {
 
         console.log(res);
         this.comic = res;
-
+        setTimeout(() => this.loaded = true, 2500)
       }
     }, (err: any) => {
         console.log(err)
     });
+  }
+
+  rateComic() {
+  }
+
+  getRating(event) {
+    console.log(event)
+    const stars: any = document.getElementsByTagName('label');
+    let value = parseInt(event.target.value)
+
+    switch (value) {
+
+      // case 1: for (let i of stars) {
+      //   i.style.color = '#A9A9A9'
+      // }
+      //   break;
+
+    }
+
+    // swich()
+
   }
 }

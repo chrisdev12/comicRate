@@ -1,1 +1,33 @@
-<p>home works!</p>
+<ng-container>
+  <section class="home-main-container" *ngIf="!loaded">
+    <img src="https://media1.tenor.com/images/2bf5e7237248ae65f31c85eba6ce3539/tenor.gif?itemid=13956215"
+      alt="Loading icon gif">
+  </section>
+  <section class="home-main-container" *ngIf="loaded">
+    <div>
+      <h2>{{comic.safe_title}}</h2>
+      <img [src]="comic.img" [alt]="comic.alt">
+      <form (ngSubmit)="rateComic()">
+        <div (change)="getRating($event)" id="rating-stars">
+          <input type="radio" id="rating-6" value="6" name="star">
+          <label for=" rating-6">&#9733;</label>
+          <input type="radio" id="rating-5" value="5" name="star">
+          <label for=" rating-5">&#9733;</label>
+          <input type="radio" id="rating-4" value="4" name="star">
+          <label for=" rating-4">&#9733;</label>
+          <input type="radio" id="rating-3" value="3" name="star">
+          <label for=" rating-3">&#9733;</label>
+          <input type="radio" id="rating-2" value="2" name="star">
+          <label for=" rating-2">&#9733;</label>
+          <input type="radio" id="rating-1" value="1" name="star">
+          <label for=" rating-1">&#9733;</label>
+        </div>
+        <p>
+          hola
+        </p>
+        <textarea name="comment" id="comment" placeholder="Coloque su comentario aquí !">
+        </textarea>
+      </form>
+    </div>
+  </section>
+</ng-container>

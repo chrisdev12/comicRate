@@ -10,7 +10,7 @@ import { map } from "rxjs/operators";
 export class ComicsService {
 
   public dataAvailable = true;
-  readonly ServiceUrl = (id: number) => `./api/${id}/info.0.json`; //Configurado en el proxy.conf.json
+  public ServiceUrl = (id: number) => `./api/${id}/info.0.json`; //Configurado en el proxy.conf.json
 
   constructor(private http: HttpClient) {}
 
