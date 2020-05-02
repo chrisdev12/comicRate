@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   private rating: Rating
   public comic: Comic;
   public loaded: Boolean;
-  public ratingDesc: string = 'Aún no has votado :(';
-  public id: number;
+  public ratingDesc: string = 'Aún no has votado 😳';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,8 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.randomNumber(1, 2299);
-    this.getComic(this.id);
+    this.getComic(this.randomNumber(1, 2299));
   }
 
   getComic(id: number) {
@@ -94,19 +92,17 @@ export class HomeComponent implements OnInit {
         control.markAsTouched();
       });
     }
-    this.rating.id = this.id;
+    this.rating.id = this.comic.num;
     this.rating.value = this.ratingForm.get('value').value;
     this.rating.review = this.ratingForm.get('review').value;
     localStorage.setItem('ratings', JSON.stringify(this.rating));
     this.ratingForm.reset();
 
     //Traer un nuevo Comic random
-    this.id = this.randomNumber(1, 2299)
-    this.getComic(this.id);
+    this.getComic(this.randomNumber(1, 2299));
   }
 
   nextComic() {
-    this.id = this.randomNumber(1, 2299)
-    this.getComic(this.id);
+    this.getComic(this.randomNumber(1, 2299));
   }
 }
