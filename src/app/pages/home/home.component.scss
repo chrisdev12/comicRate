@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 37rem;
+  height: 40rem;
   position: relative;
 
   h2{
@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 15rem;
+    height: 17rem;
     width: 60%;
 
     #rating-stars{
@@ -59,6 +59,17 @@
       font-weight: 600;
     }
 
+    .danger{
+      color: red;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      text-align: center;
+
+      &:nth-last-child(2){
+        text-align: left;
+      }
+    }
+
     #review{
       border: 2px solid $red;
       font-size: 0.7rem;
@@ -73,6 +84,25 @@
       border-radius: 10px;
       background: $blue;
       box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    }
+  }
+}
+
+
+.navigate-btns{
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  button{
+    background: transparent;
+
+    img{
+      width: 10rem;
+      height: 10rem;
     }
   }
 }

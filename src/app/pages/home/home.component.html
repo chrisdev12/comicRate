@@ -5,28 +5,41 @@
 <section class="home-main-container" *ngIf="loaded">
   <h2>{{comic.safe_title}}</h2>
   <img [src]="comic.img" [alt]="comic.alt">
-  <form #rate="ngForm" (ngSubmit)=" rateComic()">
+  <form [formGroup]="ratingForm" (ngSubmit)=" rateComic()">
     <div (change)="getRating($event)" id="rating-stars">
-      <input type="radio" name="rating" value="6" id="rating-6">
+      <input formControlName="value" type="radio" value="6" id="rating-6">
       <label for="rating-6">&#9733;</label>
-      <input type="radio" name="rating" value="5" id="rating-5">
+      <input formControlName="value" type="radio" value="5" id="rating-5">
       <label for="rating-5">&#9733;</label>
-      <input type="radio" name="rating" value="4" id="rating-4">
+      <input formControlName="value" type="radio" value="4" id="rating-4">
       <label for="rating-4">&#9733;</label>
-      <input type="radio" name="rating" value="3" id="rating-3">
+      <input formControlName="value" type="radio" value="3" id="rating-3">
       <label for="rating-3">&#9733;</label>
-      <input type="radio" name="rating" value="2" id="rating-2">
+      <input formControlName="value" type="radio" value="2" id="rating-2">
       <label for="rating-2">&#9733;</label>
-      <input type="radio" name="rating" value="1" id="rating-1">
+      <input formControlName="value" type="radio" value="1" id="rating-1">
       <label for="rating-1">&#9733;</label>
     </div>
+    <div class="danger" *ngIf="valueValidate" role="alert">
+      Debes poner una calificación
+    </div>
     <p>
-      {{rating}}
+      {{ratingDesc}}
     </p>
     <label for="review">Deja tu comentario:</label>
-    <input type="text" name="review" id="review" placeholder="Comenta aquí...">
+    <input formControlName="review" type="text" id="review" placeholder="Mínimo 15 letras">
+    <div class="danger" *ngIf="reviewValidate" role="alert">
+      Comentario debe ser más largo
+    </div>
     <button type="submit">
       Envia tu voto
     </button>
   </form>
 </section>
+
+<div class='navigate-btns' *ngIf="loaded">
+  <h3>Obtén un nuevo comic 😏</h3>
+  <button title="Obten un nuevo comic" (click)="nextComic()">
+    <img src="https://img.icons8.com/plasticine/100/000000/circled-right-2.png" alt="siguiente gif icon" />
+  </button>
+</div>

@@ -1,7 +1,12 @@
 @import '../../../styles.scss';
 
-nav {
+header{
   position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
   background: $background-color;
   z-index: 1;
   width:100%;
