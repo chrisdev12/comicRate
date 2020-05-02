@@ -1,1 +1,16 @@
-<p>votos works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>#Comic</th>
+      <th>puntuación</th>
+      <th>Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let comic of comicRatings">
+      <td>{{comic.id}}</td>
+      <td>{{comic.value}}</td>
+      <td>{{comic.review}}</td>
+    </tr>
+  </tbody>
+</table>

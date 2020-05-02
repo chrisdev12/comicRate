@@ -93,11 +93,14 @@ export class HomeComponent implements OnInit {
       });
     }
     this.rating.id = this.comic.num;
-    this.rating.value = this.ratingForm.get('value').value;
+    this.rating.value = parseInt(this.ratingForm.get('value').value);
     this.rating.review = this.ratingForm.get('review').value;
-    localStorage.setItem('ratings', JSON.stringify(this.rating));
-    this.ratingForm.reset();
 
+    //Guardar rating
+    console.log(this.rating)
+    this._service.storeRating(this.rating);
+    //Reiniciar form
+    this.ratingForm.reset();
     //Traer un nuevo Comic random
     this.getComic(this.randomNumber(1, 2299));
   }
