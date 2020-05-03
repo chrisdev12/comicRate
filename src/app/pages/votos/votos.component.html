@@ -1,16 +1,41 @@
-<table>
-  <thead>
-    <tr>
-      <th>#Comic</th>
-      <th>puntuación</th>
-      <th>Review</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let comic of comicRatings">
-      <td>{{comic.id}}</td>
-      <td>{{comic.value}}</td>
-      <td>{{comic.review}}</td>
-    </tr>
-  </tbody>
-</table>
+<header>
+  <h1>Echale un vistazo a tus reviews 🙈</h1>
+  <p>
+    Contactanos en <a target="_blank" href="https://github.com/chrisdev12">Comics.urra</a> para más info.
+    <br>
+    Recuerda que si le das click al botón azul de cada comic, podras volverlo a ver.
+  </p>
+</header>
+<section class="results-container">
+  <table>
+    <thead>
+      <tr>
+        <th>#Comic</th>
+        <th>puntuación</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comic of comicRatings">
+        <td>
+          <button title="Mostrar comic" (click)="showComic($event)" [value]="comic.name">
+            {{comic.name}}
+          </button>
+        </td>
+        <td>{{comic.value}}</td>
+        <td>{{comic.review}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="reqComic" class="comic-show-container">
+    <h2>Mira tu Comic aquí:</h2>
+    <p>{{comic.safe_title}}</p>
+    <img [src]="comic.img" [alt]="comic.alt">
+  </div>
+</section>
+<section class="chart-container">
+  <ngx-charts-bar-horizontal [view]="view" [scheme]="colorScheme" [results]="comicRatings" [gradient]="gradient"
+    [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-horizontal>
+</section>

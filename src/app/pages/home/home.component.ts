@@ -92,12 +92,11 @@ export class HomeComponent implements OnInit {
         control.markAsTouched();
       });
     }
-    this.rating.id = this.comic.num;
+    this.rating.name = this.comic.num.toString();
     this.rating.value = parseInt(this.ratingForm.get('value').value);
     this.rating.review = this.ratingForm.get('review').value;
 
     //Guardar rating
-    console.log(this.rating)
     this._service.storeRating(this.rating);
     //Reiniciar form
     this.ratingForm.reset();

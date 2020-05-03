@@ -9,6 +9,8 @@ import { ComponentsModule } from './components/components.module';
 import { ImagenesComponent } from './pages/imagenes/imagenes.component';
 import { VotosComponent } from './pages/votos/votos.component';
 import { ComicsService } from './services/comics.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ComicsService } from './services/comics.service';
     ComponentsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxChartsModule,
   ],
   providers: [ComicsService],
   bootstrap: [AppComponent]
